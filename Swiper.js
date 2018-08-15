@@ -511,7 +511,7 @@ class Swiper extends Component {
         panResponderLocked: false
       },
       () => {
-        this.resetPanAndScale
+        this.resetPanAndScale()
         this.props.onCardIndexChanged(newCardIndex)
       }
     )
