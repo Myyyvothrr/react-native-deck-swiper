@@ -510,7 +510,10 @@ class Swiper extends Component {
         swipedAllCards: swipedAllCards,
         panResponderLocked: false
       },
-      this.resetPanAndScale
+      () => {
+        this.resetPanAndScale
+        this.props.onCardIndexChanged(newCardIndex)
+      }
     )
   }
 
@@ -808,6 +811,7 @@ Swiper.propTypes = {
   inputRotationRange: PropTypes.array,
   marginBottom: PropTypes.number,
   marginTop: PropTypes.number,
+  onCardIndexChanged: PropTypes.func,
   onSwiped: PropTypes.func,
   onSwipedAborted: PropTypes.func,
   onSwipedAll: PropTypes.func,
@@ -889,6 +893,7 @@ Swiper.defaultProps = {
   inputRotationRange: [-width / 2, 0, width / 2],
   marginBottom: 0,
   marginTop: 0,
+  onCardIndexChanged: (newCardIndex) => { },
   onSwiping: () => { },
   onSwipedAborted: () => { },
   onSwiped: cardIndex => { },
